@@ -50,6 +50,12 @@ git clone https://gitee.com/HalseySpicy/Geeker-Admin.git
 git clone https://github.com/HalseySpicy/Geeker-Admin.git
 ```
 
+```text
+nvm use v18.16.1
+npm install -g pnpm
+```
+
+
 - **Install：**
 
 ```text
