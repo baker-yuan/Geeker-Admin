@@ -6,17 +6,17 @@
   "description": "baker-admin open source management system",
   "author": {
     "name": "baker",
-    "email": "848130454@qq.com",
-    "url": "https://github.com/HalseySpicy"
+    "email": "17783649163@qq.com",
+    "url": "https://github.com/baker-yuan"
   },
   "license": "MIT",
-  "homepage": "https://github.com/HalseySpicy/baker-admin",
+  "homepage": "https://github.com/baker-yuan/baker-admin",
   "repository": {
     "type": "git",
-    "url": "git@github.com:HalseySpicy/baker-admin.git"
+    "url": "git@github.com:baker-yuan/baker-admin.git"
   },
   "bugs": {
-    "url": "https://github.com/HalseySpicy/baker-admin/issues"
+    "url": "https://github.com/baker-yuan/baker-admin/issues"
   },
   "scripts": {
     "dev": "vite",
