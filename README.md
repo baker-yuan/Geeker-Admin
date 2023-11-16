@@ -1,29 +1,8 @@
-# Geeker-Admin
+# baker-admin
 
 ### 介绍 📖
 
-Geeker-Admin 一款基于 Vue3.3、TypeScript、Vite4、Pinia、Element-Plus 开源的后台管理框架，使用目前最新技术栈开发。项目提供强大的 [ProTable](https://juejin.cn/post/7166068828202336263) 组件，在一定程度上提高您的开发效率。另外本项目还封装了一些常用组件、Hooks、指令、动态路由、按钮级别权限控制等功能。
-
-### React 版本 🔥
-
-- 有需要请加底部微信了解、购买
-
-- Link：https://pro.spicyboy.cn
-
-### 在线预览 👀
-
-- Link：https://admin.spicyboy.cn
-
-### 代码仓库 ⭐
-
-- Gitee：https://gitee.com/HalseySpicy/Geeker-Admin
-- GitHub：https://github.com/HalseySpicy/Geeker-Admin
-
-### 项目文档 📚
-
-- 项目更新日志：[CHANGELOG.md](./CHANGELOG.md)
-
-- 项目文档地址：https://docs.spicyboy.cn
+baker-admin 一款基于 Vue3.3、TypeScript、Vite4、Pinia、Element-Plus 开源的后台管理框架，使用目前最新技术栈开发。项目提供强大的 [ProTable](https://juejin.cn/post/7166068828202336263) 组件，在一定程度上提高您的开发效率。另外本项目还封装了一些常用组件、Hooks、指令、动态路由、按钮级别权限控制等功能。
 
 ### 项目功能 🔨
 
@@ -41,20 +20,10 @@ Geeker-Admin 一款基于 Vue3.3、TypeScript、Vite4、Pinia、Element-Plus 开
 
 ### 安装使用步骤 📔
 
-- **Clone：**
-
-```text
-# Gitee
-git clone https://gitee.com/HalseySpicy/Geeker-Admin.git
-# GitHub
-git clone https://github.com/HalseySpicy/Geeker-Admin.git
-```
-
 ```text
 nvm use v18.16.1
 npm install -g pnpm
 ```
-
 
 - **Install：**
 
@@ -102,38 +71,10 @@ pnpm lint:stylelint
 pnpm commit
 ```
 
-### 项目截图 📷
-
-- 登录页：
-
-![login_light](https://i.imgtg.com/2023/04/13/8tknp.png)
-
-![login_dark](https://i.imgtg.com/2023/04/13/8tmpP.png)
-
-- 首页：
-
-![home_light](https://i.imgtg.com/2023/04/13/8tl1j.png)
-
-![home_dark](https://i.imgtg.com/2023/04/13/8tpfb.png)
-
-- 表格页：
-
-![table_light](https://i.imgtg.com/2023/04/13/8tfMx.png)
-
-![table_dark](https://i.imgtg.com/2023/04/13/8tv8F.png)
-
-- 数据可视化
-
-![dashboard](https://i.imgtg.com/2023/04/14/82Grx.png)
-
-- 数据大屏：
-
-![dataScreen](https://i.imgtg.com/2023/01/16/QP8HF.png)
-
 ### 文件资源目录 📚
 
 ```text
-Geeker-Admin
+baker-admin
 ├─ .husky                 # husky 配置文件
 ├─ .vscode                # VSCode 推荐配置
 ├─ build                  # Vite 配置项
@@ -182,6 +123,34 @@ Geeker-Admin
 └─ vite.config.ts         # vite 全局配置文件
 ```
 
+### 项目截图 📷
+
+- 登录页：
+
+![login_light](https://i.imgtg.com/2023/04/13/8tknp.png)
+
+![login_dark](https://i.imgtg.com/2023/04/13/8tmpP.png)
+
+- 首页：
+
+![home_light](https://i.imgtg.com/2023/04/13/8tl1j.png)
+
+![home_dark](https://i.imgtg.com/2023/04/13/8tpfb.png)
+
+- 表格页：
+
+![table_light](https://i.imgtg.com/2023/04/13/8tfMx.png)
+
+![table_dark](https://i.imgtg.com/2023/04/13/8tv8F.png)
+
+- 数据可视化
+
+![dashboard](https://i.imgtg.com/2023/04/14/82Grx.png)
+
+- 数据大屏：
+
+![dataScreen](https://i.imgtg.com/2023/01/16/QP8HF.png)
+
 ### 浏览器支持 🌎
 
 - 本地开发推荐使用 Chrome 最新版浏览器 [Download](https://www.google.com/intl/zh-CN/chrome/)。
@@ -197,22 +166,3 @@ Geeker-Admin
 
 - FastMock： https://www.fastmock.site
 - EasyMock：https://mock.mengxuegu.com
-
-### 微信交流群 👨‍👨‍👦‍👦
-
-微信一群、二群、三群已满，扫描二维码添加作者微信（支持知识付费），拉大家进入四群🤪
-
-|                           微信二维码                           |
-| :------------------------------------------------------------: |
-| <img src="https://i.imgtg.com/2023/01/16/QRbJL.png" width=170> |
-
-### 捐赠 🍵
-
-如果你正在使用这个项目或者喜欢这个项目的，可以通过以下方式支持我：
-
-- Star、Fork、Watch 一键三连 🚀
-- 通过微信、支付宝一次性捐款 ❤
-
-|                                        微信                                        |                                       支付宝                                       |
-| :--------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
-| <img src="https://i.imgtg.com/2023/01/16/QRzBX.png" alt="Alipay QRcode" width=170> | <img src="https://i.imgtg.com/2023/01/16/QRFZt.png" alt="Wechat QRcode" width=170> |

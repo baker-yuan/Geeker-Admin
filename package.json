@@ -1,22 +1,22 @@
 {
-  "name": "geeker-admin",
+  "name": "baker-admin",
   "private": true,
   "version": "1.2.0",
   "type": "module",
-  "description": "geeker-admin open source management system",
+  "description": "baker-admin open source management system",
   "author": {
-    "name": "Geeker",
+    "name": "baker",
     "email": "848130454@qq.com",
     "url": "https://github.com/HalseySpicy"
   },
   "license": "MIT",
-  "homepage": "https://github.com/HalseySpicy/Geeker-Admin",
+  "homepage": "https://github.com/HalseySpicy/baker-admin",
   "repository": {
     "type": "git",
-    "url": "git@github.com:HalseySpicy/Geeker-Admin.git"
+    "url": "git@github.com:HalseySpicy/baker-admin.git"
   },
   "bugs": {
-    "url": "https://github.com/HalseySpicy/Geeker-Admin/issues"
+    "url": "https://github.com/HalseySpicy/baker-admin/issues"
   },
   "scripts": {
     "dev": "vite",

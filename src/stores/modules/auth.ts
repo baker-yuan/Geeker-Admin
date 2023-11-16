@@ -4,7 +4,7 @@ import { getAuthButtonListApi, getAuthMenuListApi } from "@/api/modules/login";
 import { getFlatMenuList, getShowMenuList, getAllBreadcrumbList } from "@/utils";
 
 export const useAuthStore = defineStore({
-  id: "geeker-auth",
+  id: "baker-auth",
   state: (): AuthState => ({
     // 按钮权限列表
     authButtonList: {},
@@ -26,12 +26,12 @@ export const useAuthStore = defineStore({
     breadcrumbListGet: state => getAllBreadcrumbList(state.authMenuList)
   },
   actions: {
-    // Get AuthButtonList
+    // 获取按钮权限
     async getAuthButtonList() {
       const { data } = await getAuthButtonListApi();
       this.authButtonList = data;
     },
-    // Get AuthMenuList
+    // 获取菜单列表
     async getAuthMenuList() {
       const { data } = await getAuthMenuListApi();
       this.authMenuList = data;
