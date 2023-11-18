@@ -1,6 +1,7 @@
 {
   "code": 200,
   "data": [
+
     {
       "path": "/home/index",
       "name": "home",
@@ -14,6 +15,50 @@
         "isAffix": true,
         "isKeepAlive": true
       }
+    },
+    {
+      "path": "/pms",
+      "name": "pms",
+      "redirect": "/pms/category",
+      "meta": {
+        "icon": "Goods",
+        "title": "商品",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      },
+      "children": [
+        {
+          "path": "/pms/category",
+          "name": "category",
+          "component": "/pms/category/index",
+          "meta": {
+            "icon": "Folder",
+            "title": "商品分类",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/pms/brand",
+          "name": "brand",
+          "component": "/pms/brand/index",
+          "meta": {
+            "icon": "CollectionTag",
+            "title": "品牌管理",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": false
+          }
+        }
+      ]
     },
     {
       "path": "/about/index",

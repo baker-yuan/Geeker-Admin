@@ -44,47 +44,37 @@ export namespace Login {
   }
 }
 
-// 用户管理模块
-export namespace User {
+// 分类管理模块
+export namespace Category {
+  // 分类列表请求
   export interface ReqUserParams extends ReqPage {
-    username: string;
-    gender: number;
-    idCard: string;
-    email: string;
-    address: string;
-    createTime: string[];
-    status: number;
   }
-  export interface ResUserList {
-    id: string;
-    username: string;
-    gender: number;
-    user: { detail: { age: number } };
-    idCard: string;
-    email: string;
-    address: string;
-    createTime: string;
-    status: number;
-    avatar: string;
-    photo: any[];
-    children?: ResUserList[];
+  // 分类列表响应
+  export interface ResCategoryList {
   }
-  export interface ResStatus {
-    userLabel: string;
-    userValue: number;
+}
+
+
+// 品牌管理模块
+export namespace Brand {
+  // 品牌模型
+  export interface BrandModel {
+    id: number, // 主键
+    name: string, // 名称
+    firstLetter: string // 首字母
+    sort: number // 排序
+    factoryStatus: number // 是否为品牌制造商：0->不是；1->是
+    showStatus: number // 是否显示
+    productCount: number // 产品数量
+    productCommentCount: number // 产品评论数量
+    logo: string // 品牌logo
+    bigPic: string // 专区大图
+    brandStory: string // 品牌故事
   }
-  export interface ResGender {
-    genderLabel: string;
-    genderValue: number;
+
+  // 分页查询商品品牌
+  export interface ReqBrandListParams extends ReqPage {
+    name: string, // 名称
   }
-  export interface ResDepartment {
-    id: string;
-    name: string;
-    children?: ResDepartment[];
-  }
-  export interface ResRole {
-    id: string;
-    name: string;
-    children?: ResDepartment[];
-  }
+
 }
