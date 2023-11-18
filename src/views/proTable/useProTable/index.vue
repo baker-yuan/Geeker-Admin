@@ -21,6 +21,16 @@
           {{ scope.row.createTime }}
         </el-button>
       </template>
+      <!-- 品牌制造商 -->
+      <template #factoryStatus="scope">
+        <el-switch
+          @change="handleFactoryStatusChange(scope.row)"
+          :active-value="1"
+          :inactive-value="0"
+          v-model="scope.row.factoryStatus"
+        >
+        </el-switch>
+      </template>
       <!-- 表格操作 -->
       <template #operation="scope">
         <el-button type="primary" link :icon="View" @click="openDrawer('查看', scope.row)">查看</el-button>
@@ -126,6 +136,7 @@ const columns = reactive<ColumnProps<User.ResUserList>[]>([
   { prop: "idCard", label: "身份证号", search: { el: "input" } },
   { prop: "email", label: "邮箱" },
   { prop: "address", label: "居住地址" },
+  { prop: "factoryStatus", label: "factoryStatus" },
   {
     prop: "status",
     label: "用户状态",
@@ -163,6 +174,16 @@ const columns = reactive<ColumnProps<User.ResUserList>[]>([
   },
   { prop: "operation", label: "操作", fixed: "right", width: 330 }
 ]);
+
+// 品牌制造商改变
+const handleFactoryStatusChange = (row: any) => {
+  if (row == undefined || row.factoryStatus == undefined) {
+    return;
+  }
+  // alert("handleFactoryStatusChange");
+  let newParams = JSON.parse(JSON.stringify(row));
+  console.log("handleFactoryStatusChange", newParams);
+};
 
 // 表格拖拽排序
 const sortTable = ({ newIndex, oldIndex }: { newIndex?: number; oldIndex?: number }) => {
