@@ -46,12 +46,26 @@ export namespace Login {
 
 // 分类管理模块
 export namespace Category {
-  // 分类列表请求
-  export interface ReqUserParams extends ReqPage {
+  // 分类模型
+  export interface CategoryModel {
+    id: number, // 主键
+    parentId: number, // 上级分类的编号：0表示一级分类
+    name: string, // 名称
+    level: number, // 分类级别：0->1级；1->2级
+    productCount: number, // 商品数量
+    productUnit: number, // 商品单位
+    navStatus: number, // 是否显示在导航栏：0->不显示；1->显示
+    showStatus: number, // 显示状态：0->不显示；1->显示
+    sort: number, // 排序
+    icon: string, // 图标
+    keywords: string, // 关键字
+    description: string, // 描述
   }
-  // 分类列表响应
-  export interface ResCategoryList {
+  // 分页查询分类
+  export interface ReqCategoryListParams extends ReqPage {
+    parentId: number, // 上级分类的编号：0表示一级分类
   }
+
 }
 
 

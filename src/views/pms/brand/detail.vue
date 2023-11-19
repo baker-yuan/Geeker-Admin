@@ -72,14 +72,16 @@ const rules = reactive({
 });
 
 interface DrawerProps {
-  title: string;
-  isView: boolean;
-  row: Partial<Brand.BrandModel>;
-  api?: (params: any) => Promise<any>;
-  getTableList?: () => void;
+  title: string; // 标题
+  isView: boolean; // 是否查看
+  row: Partial<Brand.BrandModel>; // 数据
+  api?: (params: any) => Promise<any>; // 提交api
+  getTableList?: () => void; // 刷新列表
 }
 
+// 是否显示弹框
 const drawerVisible = ref(false);
+// 参数
 const drawerProps = ref<DrawerProps>({
   isView: false,
   title: "",

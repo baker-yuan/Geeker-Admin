@@ -39,6 +39,8 @@
       :border="border"
       :row-key="rowKey"
       @selection-change="selectionChange"
+      :lazy="isLazyLoad"
+      :load="isLazyLoad ? lazyLoadApi : undefined"
     >
       <!-- 默认插槽 -->
       <slot />
@@ -103,7 +105,7 @@
 
 <script setup lang="ts" name="ProTable">
 import { ref, watch, provide, onMounted, unref, computed, reactive } from "vue";
-import { ElTable } from "element-plus";
+import { ElTable, TreeNode } from "element-plus";
 import { useTable } from "@/hooks/useTable";
 import { useSelection } from "@/hooks/useSelection";
 import { BreakPoint } from "@/components/Grid/interface";
@@ -130,6 +132,9 @@ export interface ProTableProps {
   toolButton?: ("refresh" | "setting" | "search")[] | boolean; // 是否显示表格功能按钮 ==> 非必传（默认为true）
   rowKey?: string; // 行数据的 Key，用来优化 Table 的渲染，当表格数据多选时，所指定的 id ==> 非必传（默认为 id）
   searchCol?: number | Record<BreakPoint, number>; // 表格搜索项 每列占比配置 ==> 非必传 { xs: 1, sm: 2, md: 2, lg: 3, xl: 4 }
+  // 懒加载
+  isLazyLoad?: boolean; // 是否懒加载
+  lazyLoadApi?: ((row: any, treeNode: TreeNode, resolve: (data: any[]) => void) => void) | undefined; // 懒加载函数
 }
 
 // 接受父组件参数，配置默认值
@@ -141,7 +146,8 @@ const props = withDefaults(defineProps<ProTableProps>(), {
   border: true,
   toolButton: true,
   rowKey: "id",
-  searchCol: () => ({ xs: 1, sm: 2, md: 2, lg: 3, xl: 4 })
+  searchCol: () => ({ xs: 1, sm: 2, md: 2, lg: 3, xl: 4 }),
+  isLazyLoad: false
 });
 
 // table 实例

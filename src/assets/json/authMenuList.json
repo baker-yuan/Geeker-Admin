@@ -45,6 +45,20 @@
           }
         },
         {
+          "path": "/pms/attribute",
+          "name": "attribute",
+          "component": "/pms/attribute/index",
+          "meta": {
+            "icon": "Operation",
+            "title": "商品类型",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
           "path": "/pms/brand",
           "name": "brand",
           "component": "/pms/brand/index",
