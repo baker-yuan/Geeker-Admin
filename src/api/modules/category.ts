@@ -7,8 +7,8 @@ export const createCategory = (params: Category.CategoryModel) => {
 };
 
 // 修改商品分类
-export const updateCategory = (brand: Category.CategoryModel) => {
-  return http.put<Category.CategoryModel[]>(`/categories/${brand.id}`, brand);
+export const updateCategory = (category: Category.CategoryModel) => {
+  return http.put<Category.CategoryModel[]>(`/categories/${category.id}`, category);
 };
 
 // 分页查询商品分类
@@ -19,4 +19,9 @@ export const getCategories = (params: Category.ReqCategoryListParams) => {
 // 根据id获取商品分类
 export const getCategory = (id: number) => {
   return http.get<Category.CategoryModel>(`/categories/${id}`);
+};
+
+// 删除商品分类
+export const deleteCategoryApi = (id: number) => {
+  return http.delete<Category.CategoryModel>(`/categories/${id}`);
 };

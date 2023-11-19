@@ -67,8 +67,9 @@ import UploadImg from "@/components/Upload/Img.vue";
 import { Brand } from "@/api/interface";
 
 const rules = reactive({
-  name: [{ required: true, message: "请上传品牌名称" }],
-  logo: [{ required: true, message: "请上传品logo" }]
+  name: [{ required: true, message: "请填写品牌名称" }],
+  logo: [{ required: true, message: "请上传品logo" }],
+  firstLetter: [{ required: true, message: "请填写品牌首字母" }]
 });
 
 interface DrawerProps {

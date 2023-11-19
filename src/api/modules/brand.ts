@@ -20,3 +20,8 @@ export const getBrands = (params: Brand.ReqBrandListParams) => {
 export const getBrand = (id: number) => {
   return http.get<Brand.BrandModel>(`/brands/${id}`);
 };
+
+// 根据id删除商品品牌
+export const deleteBrandApi = (id: number) => {
+  return http.delete<Brand.BrandModel>(`/brands/${id}`);
+};

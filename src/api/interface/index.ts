@@ -92,3 +92,21 @@ export namespace Brand {
   }
 
 }
+
+
+// 品牌管理模块
+export namespace ProductAttributeCategory {
+  // 品牌模型
+  export interface ProductAttributeCategoryModel {
+    id: number, // 主键
+    name: string, // 类型名称
+    attributeCount: number, // 属性数量
+    paramCount: number // 参数数量
+  }
+
+  // 分页查询商品品牌
+  export interface ReqProductAttributeCategoryListParams extends ReqPage {
+    name: string, // 名称
+  }
+
+}

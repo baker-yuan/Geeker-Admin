@@ -54,7 +54,8 @@ import ProTable from "@/components/ProTable/index.vue";
 import { ProTableInstance, ColumnProps } from "@/components/ProTable/interface";
 import { Category } from "@/api/interface";
 import { ref, reactive } from "vue";
-import { getCategories, createCategory, updateCategory } from "@/api/modules/category";
+import { getCategories, createCategory, updateCategory, deleteCategoryApi } from "@/api/modules/category";
+import { useHandleData } from "@/hooks/useHandleData";
 import { CirclePlus, Delete, EditPen } from "@element-plus/icons-vue";
 import CategoryDrawer from "@/views/pms/category/detail.vue";
 
@@ -155,9 +156,10 @@ const sortTable = ({ newIndex, oldIndex }: { newIndex?: number; oldIndex?: numbe
   console.log(newIndex, oldIndex);
 };
 
-// 删除用户信息
-const deleteCategory = async (params: Category.CategoryModel) => {
-  console.log(params);
+// 删除分类
+const deleteCategory = async (row: Category.CategoryModel) => {
+  await useHandleData(deleteCategoryApi, row.id, `删除【${row.name}】分类`);
+  proTable.value?.getTableList();
 };
 
 // 打开 drawer(新增、查看、编辑)

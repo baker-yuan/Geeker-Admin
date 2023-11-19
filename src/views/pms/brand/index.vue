@@ -61,9 +61,10 @@ import { ProTableInstance, ColumnProps } from "@/components/ProTable/interface";
 import ProTable from "@/components/ProTable/index.vue";
 import { Brand } from "@/api/interface";
 import { ref, reactive } from "vue";
+import { useHandleData } from "@/hooks/useHandleData";
 import BrandDrawer from "@/views/pms/brand/detail.vue";
 import { CirclePlus, Delete, EditPen } from "@element-plus/icons-vue";
-import { getBrands, createBrand, updateBrand } from "@/api/modules/brand";
+import { getBrands, createBrand, updateBrand, deleteBrandApi } from "@/api/modules/brand";
 
 // ProTable 实例
 const proTable = ref<ProTableInstance>();
@@ -159,9 +160,10 @@ const batchShowBrand = async (id: string[]) => {
   console.log(id);
 };
 
-// 删除用户信息
-const deleteBrand = async (params: Brand.BrandModel) => {
-  console.log(params);
+// 删除品牌
+const deleteBrand = async (row: Brand.BrandModel) => {
+  await useHandleData(deleteBrandApi, row.id, `删除【${row.name}】品牌`);
+  proTable.value?.getTableList();
 };
 
 // 打开 drawer(新增、查看、编辑)
