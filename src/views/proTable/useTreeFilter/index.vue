@@ -1,12 +1,22 @@
 <template>
   <div class="main-box">
-    <TreeFilter
-      label="name"
-      title="部门列表(单选)"
-      :request-api="getUserDepartment"
-      :default-value="initParam.departmentId"
-      @change="changeTreeFilter"
-    />
+    <!--
+      scrollbar(滚动条): https://element-plus.org/zh-CN/component/scrollbar.html
+      tree(树形控件): https://element-plus.org/zh-CN/component/tree.html
+    -->
+    <div class="card filter">
+      <h4 class="title sle">hehe</h4>
+      <el-input placeholder="输入关键字进行过滤" clearable />
+      <el-scrollbar :style="{ height: 'hehe' ? `calc(100% - 95px)` : `calc(100% - 56px)` }">
+        <el-tree
+          :check-strictly="false"
+          :expand-on-click-node="false"
+          :data="data"
+          :props="defaultProps"
+          @node-click="handleNodeClick"
+        ></el-tree>
+      </el-scrollbar>
+    </div>
     <div class="table-box">
       <ProTable
         ref="proTable"
@@ -39,11 +49,10 @@
 import { ref, reactive } from "vue";
 import { User } from "@/api/interface";
 import { useRouter } from "vue-router";
-import { ElMessage, ElMessageBox } from "element-plus";
+import { ElTree } from "element-plus";
 import { useHandleData } from "@/hooks/useHandleData";
 import { useDownload } from "@/hooks/useDownload";
 import ProTable from "@/components/ProTable/index.vue";
-import TreeFilter from "@/components/TreeFilter/index.vue";
 import ImportExcel from "@/components/ImportExcel/index.vue";
 import UserDrawer from "@/views/proTable/components/UserDrawer.vue";
 import { ProTableInstance, ColumnProps } from "@/components/ProTable/interface";
@@ -57,9 +66,80 @@ import {
   exportUserInfo,
   BatchAddUser,
   getUserStatus,
-  getUserGender,
-  getUserDepartment
+  getUserGender
 } from "@/api/modules/user";
+
+interface Tree {
+  label: string;
+  children?: Tree[];
+}
+
+const handleNodeClick = (data: Tree) => {
+  console.log(data);
+};
+
+const data: Tree[] = [
+  {
+    label: "Level one 1",
+    children: [
+      {
+        label: "Level two 1-1",
+        children: [
+          {
+            label: "Level three 1-1-1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    label: "Level one 2",
+    children: [
+      {
+        label: "Level two 2-1",
+        children: [
+          {
+            label: "Level three 2-1-1"
+          }
+        ]
+      },
+      {
+        label: "Level two 2-2",
+        children: [
+          {
+            label: "Level three 2-2-1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    label: "Level one 3",
+    children: [
+      {
+        label: "Level two 3-1",
+        children: [
+          {
+            label: "Level three 3-1-1"
+          }
+        ]
+      },
+      {
+        label: "Level two 3-2",
+        children: [
+          {
+            label: "Level three 3-2-1"
+          }
+        ]
+      }
+    ]
+  }
+];
+
+const defaultProps = {
+  children: "children",
+  label: "label"
+};
 
 const router = useRouter();
 
@@ -73,13 +153,6 @@ const proTable = ref<ProTableInstance>();
 
 // 如果表格需要初始化请求参数，直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上，改变此参数会自动刷新表格数据)
 const initParam = reactive({ departmentId: "1" });
-
-// 树形筛选切换
-const changeTreeFilter = (val: string) => {
-  ElMessage.success("请注意查看请求参数变化 🤔");
-  proTable.value!.pageable.pageNum = 1;
-  initParam.departmentId = val;
-};
 
 // 表格配置项
 const columns = reactive<ColumnProps<User.ResUserList>[]>([
@@ -155,3 +228,7 @@ const openDrawer = (title: string, row: Partial<User.ResUserList> = {}) => {
   drawerRef.value?.acceptParams(params);
 };
 </script>
+
+<style scoped lang="scss">
+@import "./index.scss";
+</style>
