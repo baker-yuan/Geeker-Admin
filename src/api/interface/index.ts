@@ -11,7 +11,7 @@ export interface ResultData<T = any> extends Result {
 
 // 分页响应参数
 export interface ResPage<T> {
-  list: T[];
+  data: T[];
   pageNum: number;
   pageSize: number;
   total: number;
@@ -107,6 +107,20 @@ export namespace ProductAttributeCategory {
   // 分页查询商品品牌
   export interface ReqProductAttributeCategoryListParams extends ReqPage {
     name: string, // 名称
+  }
+
+}
+
+
+// 商品属性参数表管理模块
+export namespace ProductAttribute {
+  // 商品属性参数表模型
+  export interface ProductAttributeModel {
+    id: number
+  }
+
+  // 分页查询商品属性参数表
+  export interface ReqProductAttributeListParams extends ReqPage {
   }
 
 }

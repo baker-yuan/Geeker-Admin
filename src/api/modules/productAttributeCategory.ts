@@ -1,23 +1,23 @@
-import { ProductAttributeCategory } from "@/api/interface/index";
+import { ProductAttributeCategory, ResPage } from "@/api/interface/index";
 import http from "@/api";
 
 // 添加产品属性分类
-export const createProductAttributeCategory = (params: ProductAttributeCategory.ProductAttributeCategoryModel) => {
+export const createProductAttributeCategoryApi = (params: ProductAttributeCategory.ProductAttributeCategoryModel) => {
   return http.post<ProductAttributeCategory.ProductAttributeCategoryModel[]>(`/productAttributeCategories`, params);
 };
 
 // 修改产品属性分类
-export const updateProductAttributeCategory = (brand: ProductAttributeCategory.ProductAttributeCategoryModel) => {
+export const updateProductAttributeCategoryApi = (brand: ProductAttributeCategory.ProductAttributeCategoryModel) => {
   return http.put<ProductAttributeCategory.ProductAttributeCategoryModel[]>(`/productAttributeCategories/${brand.id}`, brand);
 };
 
 // 分页查询产品属性分类
-export const getProductAttributeCategories = (params: ProductAttributeCategory.ProductAttributeCategoryModel) => {
-  return http.get<ProductAttributeCategory.ProductAttributeCategoryModel[]>(`/productAttributeCategories`, params);
+export const getProductAttributeCategoriesApi = (params: ProductAttributeCategory.ReqProductAttributeCategoryListParams) => {
+  return http.get<ResPage<ProductAttributeCategory.ProductAttributeCategoryModel>>(`/productAttributeCategories`, params);
 };
 
 // 根据id获取产品属性分类
-export const getProductAttributeCategory = (id: number) => {
+export const getProductAttributeCategoryApi = (id: number) => {
   return http.get<ProductAttributeCategory.ProductAttributeCategoryModel>(`/productAttributeCategories/${id}`);
 };
 

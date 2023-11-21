@@ -1,5 +1,5 @@
 <template>
-  <el-drawer v-model="drawerVisible" :destroy-on-close="true" size="450px" :title="`${drawerProps.title}类型`">
+  <el-drawer v-model="drawerVisible" :destroy-on-close="true" size="450px" :title="`${drawerProps.title}商品属性参数`">
     <el-form
       ref="ruleFormRef"
       label-width="100px"
@@ -9,11 +9,7 @@
       :model="drawerProps.row"
       :hide-required-asterisk="drawerProps.isView"
     >
-      <el-form-item label="类型名称" prop="name">
-        <el-input v-model="drawerProps.row!.name" placeholder="请填写类型名称" clearable></el-input>
-      </el-form-item>
     </el-form>
-
     <template #footer>
       <el-button @click="drawerVisible = false">取消</el-button>
       <el-button v-show="!drawerProps.isView" type="primary" @click="handleSubmit">确定</el-button>
@@ -21,19 +17,17 @@
   </el-drawer>
 </template>
 
-<script setup lang="ts" name="ProductAttributeCategoryDrawer">
+<script setup lang="ts" name="ProductAttributeDrawer">
 import { ref, reactive } from "vue";
 import { ElMessage, FormInstance } from "element-plus";
-import { Brand } from "@/api/interface";
+import { ProductAttribute } from "@/api/interface";
 
-const rules = reactive({
-  name: [{ required: true, message: "请填写类型名称" }]
-});
+const rules = reactive({});
 
 interface DrawerProps {
   title: string; // 标题
   isView: boolean; // 是否查看
-  row: Partial<Brand.BrandModel>; // 数据
+  row: Partial<ProductAttribute.ProductAttributeModel>; // 数据
   api?: (params: any) => Promise<any>; // 提交api
   getTableList?: () => void; // 刷新列表
 }
@@ -60,7 +54,7 @@ const handleSubmit = () => {
     if (!valid) return;
     try {
       await drawerProps.value.api!(drawerProps.value.row);
-      ElMessage.success({ message: `${drawerProps.value.title}类型成功！` });
+      ElMessage.success({ message: `${drawerProps.value.title}商品属性参数成功！` });
       drawerProps.value.getTableList!();
       drawerVisible.value = false;
     } catch (error) {
