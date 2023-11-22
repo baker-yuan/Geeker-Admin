@@ -8,12 +8,12 @@ export const createProductAttributeApi = (params: ProductAttribute.ProductAttrib
 
 // 修改商品属性参数表
 export const updateProductAttributeApi = (productAttribute: ProductAttribute.ProductAttributeModel) => {
-  return http.put(`/brands/${productAttribute.id}`, productAttribute);
+  return http.put(`/productAttributes/${productAttribute.id}`, productAttribute);
 };
 
 // 分页查询商品属性参数表
 export const getProductAttributesApi = (params: ProductAttribute.ReqProductAttributeListParams) => {
-  return http.get<ResPage<ProductAttribute.ProductAttributeModel[]>>(`/productAttributes`, params);
+  return http.get<ResPage<ProductAttribute.ProductAttributeModel>>(`/productAttributes`, params);
 };
 
 // 根据id获取商品属性参数表

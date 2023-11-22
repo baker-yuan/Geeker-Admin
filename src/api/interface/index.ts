@@ -116,7 +116,18 @@ export namespace ProductAttributeCategory {
 export namespace ProductAttribute {
   // 商品属性参数表模型
   export interface ProductAttributeModel {
-    id: number
+    id: number // 编号
+    productAttributeCategoryId: number // 产品属性分类表ID
+    name: string // 属性名称
+    selectType: number // 属性选择类型：0->唯一；1->单选；2->多选
+    inputType: number // 属性录入方式：0->手工录入；1->从列表中选取
+    inputList: string // 可选值列表，以逗号隔开
+    sort: number // 排序字段
+    filterType: number // 分类筛选样式：1->普通；1->颜色
+    searchType: number // 检索类型；0->不需要进行检索；1->关键字检索；2->范围检索
+    relatedStatus: number // 相同属性产品是否关联；0->不关联；1->关联
+    handAddStatus: number // 是否支持手动新增；0->不支持；1->支持
+    type: number // 属性的类型；0->规格；1->参数
   }
 
   // 分页查询商品属性参数表

@@ -60,7 +60,7 @@
   </el-drawer>
 </template>
 
-<script setup lang="ts" name="UserDrawer">
+<script setup lang="ts" name="BrandDrawer">
 import { ref, reactive } from "vue";
 import { ElMessage, FormInstance } from "element-plus";
 import UploadImg from "@/components/Upload/Img.vue";

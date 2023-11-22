@@ -1,4 +1,4 @@
-import { Brand } from "@/api/interface/index";
+import { Brand, ResPage } from "@/api/interface/index";
 import http from "@/api";
 
 // 添加商品品牌
@@ -13,7 +13,7 @@ export const updateBrand = (brand: Brand.BrandModel) => {
 
 // 分页查询商品品牌
 export const getBrands = (params: Brand.ReqBrandListParams) => {
-  return http.get<Brand.BrandModel[]>(`/brands`, params);
+  return http.get<ResPage<Brand.BrandModel>>(`/brands`, params);
 };
 
 // 根据id获取商品品牌
